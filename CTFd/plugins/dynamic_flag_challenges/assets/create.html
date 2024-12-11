@@ -1,0 +1,27 @@
+{% extends "admin/challenges/create.html" %}
+
+{% block value %}
+<div class="form-group">
+	<label for="value">Private key<br>
+		<small class="form-text text-muted">
+			Using for randomize the flag. Will be random if private key empty
+		</small>
+	</label>
+	<textarea id="new-desc-editor" class="form-control markdown" name="privkey" rows="10" ></textarea>
+
+</div>
+
+<div class="form-group">
+	<label>
+		Value:<br>
+		<small class="form-text text-muted">
+			This is how many points are rewarded for solving this challenge.
+		</small>
+	</label>
+	<input type="number" class="form-control" name="value" placeholder="Enter value" required>
+</div>
+{% endblock %}
+
+{% block type %}
+<input type="hidden" value="online" name="type" id="chaltype">
+{% endblock %}

@@ -245,6 +245,9 @@ class ChallengeList(Resource):
         challenge_type = data["type"]
         challenge_class = get_chal_class(challenge_type)
         challenge = challenge_class.create(request)
+        if isinstance(challenge,dict) and challenge.get("errors"):
+            return {"success": False, "errors": {"value" :[challenge.get("errors")]}}, 400
+
         response = challenge_class.read(challenge)
 
         clear_challenges()

@@ -1,0 +1,33 @@
+{% extends "admin/challenges/update.html" %}
+
+{% block value %}
+<div class="form-group">
+	<label for="value">Current Value<br>
+		<small class="form-text text-muted">
+			This is how many points the challenge is worth right now.
+		</small>
+	</label>
+	<input type="number" class="form-control chal-value" name="value" value="{{ challenge.value }}" disabled>
+</div>
+
+<div class="form-group">
+	<label for="value">Private key<br>
+		<small class="form-text text-muted">
+			Using for randomize the flag
+		</small>
+	</label>
+    <textarea id="new-desc-editor" class="form-control markdown" name="privkey" rows="10" >{{ challenge.privkey}}</textarea>
+
+</div>
+
+<div class="form-group">
+	<label for="value">Public key<br>
+		<small class="form-text text-muted">
+			Using for encrypting the flag on challenges. Cannot update this.
+		</small>
+	</label>
+    <textarea id="new-desc-editor" class="form-control markdown" name="pubkey" rows="10" disabled>{{ challenge.pubkey}}</textarea>
+
+</div>
+
+{% endblock %}
